@@ -109,6 +109,31 @@ void ve_khung_thong_tin()//KHUNG TÊN GAME + NAME
 	gotoXY(60, 5); cout << char(192);
 	gotoXY(110, 5); cout << char(217);
 }
+void tao_ran()//TẠO CON RẮN TRONG GAME
+{
+	int x_khoi_tao = 50;
+	int y_khoi_tao = 18;
+	for (int i = 0; i < sl; i++)
+	{
+		toadox[i] = x_khoi_tao--;
+		toadoy[i] = y_khoi_tao;
+	}
+}
+void ve_ran()//ctr home
+{
+	for (int i = 0; i < sl; i++)
+	{
+		gotoXY(toadox[i], toadoy[i]);
+		if (i == 0)
+		{
+			cout << "O";
+		}
+		else
+		{
+			cout << "o";
+		}
+	}
+}
 void di_chuyen_ran(int x, int y)
 {
 	//Thêm x y vào toadox, toadoy
