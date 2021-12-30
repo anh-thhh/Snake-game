@@ -44,3 +44,44 @@ void ve_qua()//Vẽ quả
 	gotoXY(xqua, yqua);
 	cout << "O";
 }
+void ve_khung_thong_tin()//KHUNG TÊN GAME + NAME
+{
+	//SNAKE GAME
+	for (int x = 10; x <= 55; x++)
+	{
+		gotoXY(x, 1);
+		cout << char(196);
+		gotoXY(x, 5);
+		cout << char(196);
+	}
+	for (int y = 1; y <= 5; y++)
+	{
+		gotoXY(10, y);
+		cout << char(179);
+		gotoXY(55, y);
+		cout << char(179);
+	}
+	gotoXY(10, 1); cout << char(218);
+	gotoXY(55, 1); cout << char(191);
+	gotoXY(10, 5); cout << char(192);
+	gotoXY(55, 5); cout << char(217);
+	//NAME AND SCORE
+	for (int x = 60; x <= 110; x++)
+	{
+		gotoXY(x, 1);
+		cout << char(196);
+		gotoXY(x, 5);
+		cout << char(196);
+	}
+	for (int y = 1; y <= 5; y++)
+	{
+		gotoXY(60, y);
+		cout << char(179);
+		gotoXY(110, y);
+		cout << char(179);
+	}
+	gotoXY(60, 1); cout << char(218);
+	gotoXY(110, 1); cout << char(191);
+	gotoXY(60, 5); cout << char(192);
+	gotoXY(110, 5); cout << char(217);
+}
