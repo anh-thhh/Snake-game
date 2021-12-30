@@ -145,6 +145,20 @@ void di_chuyen_ran(int x, int y)
 	toadox[0] = x;
 	toadoy[0] = y;
 }
+bool ktra_ran_an_qua()//Kiểm tra rắn có ăn quả hay không
+{
+	return (toadox[0] == xqua && toadoy[0] == yqua);
+}
+void xuly_ran_an_qua(int &diem)
+{
+	if (ktra_ran_an_qua())
+	{
+		sl++;//tăng thêm độ dài
+		tao_qua();//tạo lại quả
+		ve_qua();
+		diem = diem + 10;
+    }
+}
 void play()
 {
 	ShowCur(0);//Làm mất dấu nháy
