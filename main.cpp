@@ -29,7 +29,31 @@ bool game_over();//Các trường hợp xử thua để kết thúc game
 
 int main()
 {
-    return 0;
+	string name;
+	for (int x = 28; x <= 110; x++)
+	{
+		gotoXY(x, 3);
+		cout << "SNAKE GAME";
+		break;
+	}
+	ve_khung_thong_tin();
+	for (int x = 62; x <= 110; x++)
+	{
+		gotoXY(x, 2);
+		cout << "Nhap ten nguoi choi: ";
+		getline(cin , name);
+		break;
+	}
+	for (int x = 62; x <= 110; x++)
+	{
+		gotoXY(x, 4);
+		cout << "SCORE: ";
+		break;
+	}
+
+	srand(time(NULL));//Hàm tạo hạt giống
+	play();	
+	_getch();
 }
 void tao_qua()//Tạo quả nằm ở vị trí random
 {
@@ -84,4 +108,97 @@ void ve_khung_thong_tin()//KHUNG TÊN GAME + NAME
 	gotoXY(110, 1); cout << char(191);
 	gotoXY(60, 5); cout << char(192);
 	gotoXY(110, 5); cout << char(217);
+}
+void di_chuyen_ran(int x, int y)
+{
+	//Thêm x y vào toadox, toadoy
+	for (int i = sl; i > 0; i--)
+	{
+		toadox[i] = toadox[i - 1];
+		toadoy[i] = toadoy[i - 1];
+	}
+	toadox[0] = x;
+	toadoy[0] = y;
+}
+void play()
+{
+	ShowCur(0);//Làm mất dấu nháy
+	
+	ve_tuong();
+	tao_ran();
+	tao_qua();
+	ve_qua();
+	//0: đi xuống
+	//1: đi lên
+	//2: đi qua phải
+	//3: đi qua trái
+	int check = 2;
+	int diem = 0;
+	int x = toadox[0];
+	int y = toadoy[0];
+	
+	while (true)
+	{
+		//=========ClEAR DỮ LIỆU CŨ==========
+		gotoXY(toadox[sl], toadoy[sl]);
+		cout << " ";
+		//================IN=================
+		ve_ran();
+		gotoXY(70, 4);
+		cout << diem;
+		//===========ĐIỀU KHIỂN RẮN==========
+		if (_kbhit())
+		{
+			char c = _getch();
+			if (c == -32)
+			{
+				c = _getch();
+				if (c == 72 && check != 0)//khi đi lên kh đc đi ngược xuống
+				{
+					check = 1;//Đi lên
+				}
+				else if (c == 80 && check != 1)//khi đi xuống kh đc đi ngược lên
+				{
+					check = 0;//Đi xuống
+				}
+				else if (c == 75 && check != 2)//khi đi qua trái kh đc đi ngược qua phải
+				{
+					check = 3;//Đi qua trái
+				}
+				else if (c == 77 && check != 3)//khi đi qua phải kh đc đi ngược qua trái
+				{
+					check = 2;//Đi qua phải
+				}
+			}
+		}
+		//=============DI CHUYỂN=============
+		if (check == 0)
+		{
+			y++;
+		}
+		else if (check == 1)
+		{
+			y--;
+		}
+		else if (check == 2)
+		{
+			x++;
+		}
+		else if (check == 3)
+		{
+			x--;
+		}
+		//================BIÊN===============
+		if (game_over())
+		{
+			break;
+		}
+		//==============XỬ LÝ RẮN============
+		xuly_ran_an_qua(diem);
+		di_chuyen_ran(x, y);
+		//==========TỐC ĐỘ DI CHUYỂN=========
+		Sleep(100);
+	}
+	gotoXY(50, 19);
+	cout << "DUOC CO " << diem << " DIEM THOI";
 }
