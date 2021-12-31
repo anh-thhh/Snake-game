@@ -241,3 +241,24 @@ void play()
 	gotoXY(50, 19);
 	cout << "DUOC CO " << diem << " DIEM THOI";
 }
+bool ktra_ran_cham_than()
+{
+	for (int i = 1; i <= sl; i++)
+	{
+		if (toadox[0] == toadox[i] && toadoy[0] == toadoy[i])
+		{
+			return true;
+		}
+	}
+	return false;
+}
+bool game_over()
+{
+	//Chạm tường là thua 
+	if (toadox[0] == 10 || toadox[0] == 110 || toadoy[0] == 7 || toadoy[0] == 28)
+	{
+		return true;
+	}
+	//Chạm đuôi
+	return ktra_ran_cham_than();
+}
