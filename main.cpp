@@ -262,3 +262,24 @@ bool game_over()
 	//Chạm đuôi
 	return ktra_ran_cham_than();
 }
+void khung_end_game()
+{
+	for (int x = 40; x <= 80; x++)
+	{
+		gotoXY(x, 14);
+		cout << char(196);
+		gotoXY(x, 22);
+		cout << char(196);
+	}
+	for (int y = 14; y <= 22; y++)
+	{
+		gotoXY(40, y);
+		cout << char(179);
+		gotoXY(80, y);
+		cout << char(179);
+	}
+	gotoXY(40, 14); cout << char(218);
+	gotoXY(80, 14); cout << char(191);
+	gotoXY(40, 22); cout << char(192);
+	gotoXY(80, 22); cout << char(217);
+}
