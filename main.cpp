@@ -50,10 +50,12 @@ int main()
 		cout << "SCORE: ";
 		break;
 	}
-
 	srand(time(NULL));//Hàm tạo hạt giống
-	play();	
+	play();
+	//khung_end_game();
+	end_game(name);
 	_getch();
+}
 }
 void tao_qua()//Tạo quả nằm ở vị trí random
 {
