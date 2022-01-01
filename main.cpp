@@ -57,6 +57,29 @@ int main()
 	_getch();
 }
 }
+void ve_tuong()//KHUNG PLAY SNAKE GAME
+{
+	//TƯỜNG NGANG
+	for (int x = 10; x <= 110; x++)
+	{
+		gotoXY(x, 7);
+		cout << char(196);
+		gotoXY(x, 28);
+		cout << char(196);
+	}
+	//TƯỜNG DỌC
+	for (int y = 7; y <= 28; y++)
+	{
+		gotoXY(10, y);
+		cout << char(179);
+		gotoXY(110, y);
+		cout << char(179);
+	}
+	gotoXY(10, 7); cout << char(218);
+	gotoXY(110, 7); cout << char(191);
+	gotoXY(10, 28); cout << char(192);
+	gotoXY(110, 28); cout << char(217);
+}
 void tao_qua()//Tạo quả nằm ở vị trí random
 {
 	do
