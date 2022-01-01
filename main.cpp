@@ -285,3 +285,24 @@ void khung_end_game()
 	gotoXY(40, 22); cout << char(192);
 	gotoXY(80, 22); cout << char(217);
 }
+void end_game(string name)
+{
+	for (int x = 55; x <= 110; x++)
+	{
+		gotoXY(x, 15);
+		cout << " GAME OVER ";
+		break;
+	}
+	for (int x = 46; x <= 110; x++)
+	{
+		gotoXY(x, 17);
+		cout << "HAHA, THUA ROI, ";
+		break;
+	}
+	for (int x = 56; x <= 110; x++)
+	{
+		gotoXY(x, 21);
+		cout <<"LEU LEU :>";
+		break;
+	}
+}
