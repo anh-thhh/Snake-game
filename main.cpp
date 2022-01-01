@@ -162,7 +162,7 @@ void xuly_ran_an_qua(int &diem)
 void play()
 {
 	ShowCur(0);//Làm mất dấu nháy
-	
+	//=========BUILD GAME==========
 	ve_tuong();
 	tao_ran();
 	tao_qua();
@@ -175,7 +175,7 @@ void play()
 	int diem = 0;
 	int x = toadox[0];
 	int y = toadoy[0];
-	
+	//=========SETTING GAME==========
 	while (true)
 	{
 		//=========ClEAR DỮ LIỆU CŨ==========
@@ -239,7 +239,7 @@ void play()
 		Sleep(100);
 	}
 	gotoXY(50, 19);
-	cout << "DUOC CO " << diem << " DIEM THOI";
+	cout << "DUOC CO " << diem << " DIEM THUI /-\ ";
 }
 bool ktra_ran_cham_than()
 {
